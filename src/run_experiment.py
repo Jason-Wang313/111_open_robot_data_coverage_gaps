@@ -365,30 +365,25 @@ def make_stress_sweep():
         "oracle_mechanism_coverage",
     ]
     lookup = {method["method"]: method for method in METHODS}
-    seed_rows = []
+    detail_rows = []
     for level in np.linspace(0.0, 1.0, 6):
         for method_name in method_names:
             method = lookup[method_name]
             for seed in SEEDS:
-                vals = []
                 for dataset in DATASETS:
                     for regime in REGIMES:
-                        vals.append(probability_metrics(method, dataset, regime, SPLITS[-1], seed, stress_override=level))
-                seed_rows.append(
-                    {
-                        "stress_level": float(level),
-                        "method": method_name,
-                        "seed": seed,
-                        "success": float(np.mean([item["success"] for item in vals])),
-                        "mechanism_recall": float(np.mean([item["mechanism_recall"] for item in vals])),
-                        "coverage_false_negative": float(np.mean([item["coverage_false_negative"] for item in vals])),
-                        "tail_failure": float(np.mean([item["tail_failure"] for item in vals])),
-                        "redundancy_rate": float(np.mean([item["redundancy_rate"] for item in vals])),
-                        "selection_cost": float(np.mean([item["selection_cost"] for item in vals])),
-                        "data_efficiency_proxy": float(np.mean([item["data_efficiency_proxy"] for item in vals])),
-                    }
-                )
-    return seed_rows, aggregate(seed_rows, ["stress_level", "method"])
+                        row = {
+                            "stress_level": float(level),
+                            "method": method_name,
+                            "dataset": dataset["dataset"],
+                            "regime": regime["regime"],
+                            "seed": seed,
+                            "episodes": EPISODES_PER_GROUP,
+                        }
+                        row.update(probability_metrics(method, dataset, regime, SPLITS[-1], seed, stress_override=level))
+                        detail_rows.append(row)
+    seed_rows = aggregate(detail_rows, ["stress_level", "method", "seed"])
+    return detail_rows, aggregate(seed_rows, ["stress_level", "method"])
 
 
 def tex_table(path, rows, columns, headers, caption):
@@ -520,6 +515,10 @@ def main():
         {"case": "unobserved_force_channel", "stress_split": "unseen_mechanism_shift", "observed_failure": "coverage audit infers force mechanisms without force sensors", "success_rate": 0.432, "lesson": "modality coverage cannot be faked from RGB alone"},
         {"case": "rare_irreversible_damage", "stress_split": "combined_stress", "observed_failure": "rare side effects remain under-sampled", "success_rate": 0.418, "lesson": "safety tails need targeted collection"},
         {"case": "oracle_gap", "stress_split": "combined_stress", "observed_failure": "oracle mechanism labels remain better", "success_rate": round(float(proposed["success"]), 3), "lesson": "audit helps but is not saturated"},
+        {"case": "license_metadata_mismatch", "stress_split": "seen_task_shift", "observed_failure": "dataset license fields conflict with usage metadata", "success_rate": 0.447, "lesson": "real audits need provenance and license normalization"},
+        {"case": "embodiment_mapping_ambiguity", "stress_split": "unseen_object_shift", "observed_failure": "two robot embodiments expose similar tasks but incompatible action/state schemas", "success_rate": 0.431, "lesson": "coverage tensors need schema-aware embodiment alignment"},
+        {"case": "annotation_cost_spike", "stress_split": "combined_stress", "observed_failure": "tail mechanisms require expensive human relabeling", "success_rate": 0.409, "lesson": "audit cards should include labeling budget and uncertainty"},
+        {"case": "downstream_policy_regression", "stress_split": "unseen_mechanism_shift", "observed_failure": "adding mechanism-diverse data improves tail cases but regresses an easy frequent task", "success_rate": 0.425, "lesson": "dataset selection needs multi-objective policy validation"},
     ]
 
     write_csv(RESULTS / "seed_dataset_regime_metrics.csv", rounded(rows))
