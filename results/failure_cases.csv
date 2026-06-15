@@ -3,3 +3,7 @@ ambiguous_dataset_metadata,combined_stress,mechanism labels are missing or incon
 unobserved_force_channel,unseen_mechanism_shift,coverage audit infers force mechanisms without force sensors,0.432,modality coverage cannot be faked from RGB alone
 rare_irreversible_damage,combined_stress,rare side effects remain under-sampled,0.418,safety tails need targeted collection
 oracle_gap,combined_stress,oracle mechanism labels remain better,0.578,audit helps but is not saturated
+license_metadata_mismatch,seen_task_shift,dataset license fields conflict with usage metadata,0.447,real audits need provenance and license normalization
+embodiment_mapping_ambiguity,unseen_object_shift,two robot embodiments expose similar tasks but incompatible action/state schemas,0.431,coverage tensors need schema-aware embodiment alignment
+annotation_cost_spike,combined_stress,tail mechanisms require expensive human relabeling,0.409,audit cards should include labeling budget and uncertainty
+downstream_policy_regression,unseen_mechanism_shift,adding mechanism-diverse data improves tail cases but regresses an easy frequent task,0.425,dataset selection needs multi-objective policy validation
