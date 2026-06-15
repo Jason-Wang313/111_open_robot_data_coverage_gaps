@@ -1,0 +1,5 @@
+case,stress_split,observed_failure,success_rate,lesson
+ambiguous_dataset_metadata,combined_stress,mechanism labels are missing or inconsistent,0.404,real dataset validation requires manual or model-assisted labeling
+unobserved_force_channel,unseen_mechanism_shift,coverage audit infers force mechanisms without force sensors,0.432,modality coverage cannot be faked from RGB alone
+rare_irreversible_damage,combined_stress,rare side effects remain under-sampled,0.418,safety tails need targeted collection
+oracle_gap,combined_stress,oracle mechanism labels remain better,0.578,audit helps but is not saturated

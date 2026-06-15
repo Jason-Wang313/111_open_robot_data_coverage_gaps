@@ -1,16 +1,51 @@
-Submission-hardening experiment for paper 111 open_robot_data_coverage_gaps
-Seven seeds, 600 episodes per seed, strong baselines, ablations, stress sweep, and negative cases.
-observed_only_behavior_clone hidden_mode_shift mean_success=0.3998 ci95=0.0163 tail=0.6002
-observed_only_behavior_clone combined_stress mean_success=0.3364 ci95=0.0173 tail=0.6636
-data_augmentation_wam hidden_mode_shift mean_success=0.4843 ci95=0.0156 tail=0.5157
-data_augmentation_wam combined_stress mean_success=0.4057 ci95=0.0176 tail=0.5943
-scalar_uncertainty_planner hidden_mode_shift mean_success=0.5526 ci95=0.0159 tail=0.4474
-scalar_uncertainty_planner combined_stress mean_success=0.4962 ci95=0.0129 tail=0.5038
-ensemble_disagreement_planner hidden_mode_shift mean_success=0.5843 ci95=0.0132 tail=0.4157
-ensemble_disagreement_planner combined_stress mean_success=0.5614 ci95=0.0159 tail=0.4386
-conformal_risk_filter hidden_mode_shift mean_success=0.6105 ci95=0.0125 tail=0.3895
-conformal_risk_filter combined_stress mean_success=0.5555 ci95=0.0102 tail=0.4445
-proposed_branch_mechanism hidden_mode_shift mean_success=0.6826 ci95=0.0118 tail=0.3174
-proposed_branch_mechanism combined_stress mean_success=0.6545 ci95=0.0134 tail=0.3455
-oracle_branch_upper_bound hidden_mode_shift mean_success=0.7674 ci95=0.0134 tail=0.2326
-oracle_branch_upper_bound combined_stress mean_success=0.7498 ci95=0.0104 tail=0.2502
+Paper 111 open_robot_data_coverage_gaps evidence rebuild
+Design: 5 dataset families x 7 mechanism-gap regimes x 5 splits x 9 methods, 7 seeds, 84 episodes/group.
+Terminal decision: STRONG_REVISE
+Rationale: local mechanism-coverage evidence supports the audit only if all gates pass; real public-dataset validation remains missing.
+
+Combined-stress ranking:
+oracle_mechanism_coverage: success=0.665 +/- 0.006, mechanism_recall=0.746, false_negative=0.015, tail_failure=0.053, redundancy=0.104, cost=0.208, regret=0.000
+proposed_mechanism_coverage_audit: success=0.578 +/- 0.012, mechanism_recall=0.652, false_negative=0.045, tail_failure=0.078, redundancy=0.128, cost=0.217, regret=0.088
+failure_prediction_selection: success=0.503 +/- 0.005, mechanism_recall=0.486, false_negative=0.092, tail_failure=0.103, redundancy=0.177, cost=0.272, regret=0.163
+uncertainty_sampling: success=0.479 +/- 0.007, mechanism_recall=0.423, false_negative=0.113, tail_failure=0.122, redundancy=0.184, cost=0.257, regret=0.186
+embedding_diversity_selection: success=0.468 +/- 0.006, mechanism_recall=0.384, false_negative=0.127, tail_failure=0.144, redundancy=0.179, cost=0.232, regret=0.197
+random_balanced_selection: success=0.434 +/- 0.006, mechanism_recall=0.322, false_negative=0.145, tail_failure=0.155, redundancy=0.195, cost=0.192, regret=0.231
+embodiment_count_selection: success=0.426 +/- 0.009, mechanism_recall=0.266, false_negative=0.161, tail_failure=0.166, redundancy=0.219, cost=0.172, regret=0.239
+task_count_selection: success=0.412 +/- 0.003, mechanism_recall=0.238, false_negative=0.169, tail_failure=0.172, redundancy=0.223, cost=0.155, regret=0.253
+trajectory_count_selection: success=0.380 +/- 0.006, mechanism_recall=0.187, false_negative=0.184, tail_failure=0.182, redundancy=0.232, cost=0.122, regret=0.286
+
+Gate outcomes:
+success_gate: True
+diagnostic_gate: True
+safety_gate: True
+pairwise_gate: True
+ablation_gate: True
+success_margin_vs_strongest: 0.07531584062196306
+mechanism_recall_delta_vs_strongest: 0.1665401293430807
+coverage_false_negative_delta_vs_strongest: -0.04727428106147106
+tail_failure_delta_vs_strongest: -0.02513399508980757
+redundancy_rate_delta_vs_strongest: -0.048537529341005026
+selection_cost_delta_vs_strongest: -0.054116800000000076
+ablation_margin_vs_best_removed_component: 0.020894071914480006
+strongest_non_oracle_baseline: failure_prediction_selection
+best_removed_component: minus_redundancy_penalty
+oracle_success: 0.665
+
+Pairwise proposed comparisons:
+embedding_diversity_selection: diff=0.110 +/- 0.015, wins=7/7, decision=proposed_better
+embodiment_count_selection: diff=0.152 +/- 0.019, wins=7/7, decision=proposed_better
+failure_prediction_selection: diff=0.075 +/- 0.013, wins=7/7, decision=proposed_better
+oracle_mechanism_coverage: diff=-0.088 +/- 0.013, wins=0/7, decision=not_decisive
+random_balanced_selection: diff=0.143 +/- 0.012, wins=7/7, decision=proposed_better
+task_count_selection: diff=0.166 +/- 0.012, wins=7/7, decision=proposed_better
+trajectory_count_selection: diff=0.198 +/- 0.009, wins=7/7, decision=proposed_better
+uncertainty_sampling: diff=0.099 +/- 0.011, wins=7/7, decision=proposed_better
+
+Ablations:
+full_mechanism_coverage_audit: success=0.567 +/- 0.006, mechanism_recall=0.652, false_negative=0.044, tail_failure=0.078, note=all components
+minus_redundancy_penalty: success=0.547 +/- 0.008, mechanism_recall=0.605, false_negative=0.060, tail_failure=0.092, note=overselects duplicate easy regimes
+minus_modality_coverage: success=0.539 +/- 0.008, mechanism_recall=0.546, false_negative=0.077, tail_failure=0.094, note=misses tactile and force sensing gaps
+minus_failure_recovery_axis: success=0.539 +/- 0.005, mechanism_recall=0.556, false_negative=0.074, tail_failure=0.103, note=ignores recovery coverage after failure
+minus_tail_gap_estimator: success=0.535 +/- 0.006, mechanism_recall=0.568, false_negative=0.080, tail_failure=0.139, note=misses rare mechanism holes
+minus_mechanism_taxonomy: success=0.512 +/- 0.005, mechanism_recall=0.456, false_negative=0.097, tail_failure=0.097, note=loses mechanism labels beyond task and embodiment counts
+failure_prediction_only: success=0.502 +/- 0.007, mechanism_recall=0.486, false_negative=0.092, tail_failure=0.103, note=failure-prediction selection baseline

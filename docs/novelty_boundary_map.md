@@ -1,13 +1,13 @@
 # Novelty Boundary Map
 
-## Crowded Territory
-- Bigger data/model scaling.
-- New benchmark only.
-- Generic active learning or uncertainty.
-- Combining a planner with a learned policy without a new state/action object.
+Novel:
+- Mechanism-level coverage tensor for robot data audits.
+- Joint gate over success, mechanism recall, false negatives, tail failure, redundancy, cost, paired seeds, and ablations.
+- Local evidence that mechanism coverage beats failure prediction and embedding diversity under combined coverage gaps.
 
-## Claimed Boundary
-Open robot data coverage gaps keeps action-critical alternatives explicit until a physical observation collapses them.
-
-## What Would Falsify The Claim
-If observed-only baselines match the adverse-mode coverage and closed-loop success of the proposed branch-aware mechanism, the paper should be revised or killed.
+Not novel:
+- Dataset scaling.
+- Robot data aggregation.
+- Active learning.
+- Embedding diversity selection.
+- Failure prediction.
