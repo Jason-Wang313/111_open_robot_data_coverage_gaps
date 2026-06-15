@@ -1,12 +1,11 @@
 # Final Audit
 
-1. Chosen thesis: Open Robot Data Coverage Gaps explores `Measure mechanism coverage gaps in open robot data beyond task and embodiment counts.` for open robot datasets.
-2. ICLR-main decision: KILL_ARCHIVE.
-3. Submission-hardening version: v3.
-4. Reason: synthetic-only, template-generated evidence cannot support ICLR main-conference robotics claims.
-5. Closest hostile prior work: see `docs/hostile_prior_work.md`, `docs/hostile_prior_work_100_cards.csv`, and `docs/hostile_reviewer_response.md`.
-6. Reproducibility: synthetic code runs, but no real robot or high-fidelity benchmark is reproduced.
-7. Claim-validity status: main-conference claims killed; archive memo retained.
-8. Exact Downloads PDF path: `C:/Users/wangz/Downloads/111.pdf`
-9. GitHub URL: https://github.com/Jason-Wang313/111_open_robot_data_coverage_gaps
-10. Confirmation: no visible Desktop copy was requested or made.
+Paper: 111 open_robot_data_coverage_gaps
+
+Decision: STRONG_REVISE
+
+The v4 rebuild adds a local mechanism-coverage benchmark with paired seeds, strong local data-selection baselines, ablations, stress sweeps, failure cases, LaTeX tables, and figures. The proposed mechanism coverage audit beats the strongest non-oracle baseline, `failure_prediction_selection`, by `0.075 +/- 0.013` paired success under combined stress.
+
+Mechanism diagnostics pass: mechanism recall improves by `0.167`, tail mechanism failure falls by `0.025`, redundancy falls by `0.049`, and selection cost falls by `0.054`.
+
+Remaining blocker: the evidence is local. The paper should not be submitted to ICLR main without validation on real public robot datasets and downstream trained policies.

@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\caption{Ablation results under combined coverage gap stress.}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\toprule
+Ablation & Succ. & CI & Recall & FalseNeg & TailFail & Redund. \\
+\midrule
+Full & 0.567 & 0.006 & 0.652 & 0.044 & 0.078 & 0.129 \\
+NoRedundancy & 0.547 & 0.008 & 0.605 & 0.060 & 0.092 & 0.210 \\
+NoModality & 0.539 & 0.008 & 0.546 & 0.077 & 0.094 & 0.145 \\
+NoRecovery & 0.539 & 0.005 & 0.556 & 0.074 & 0.103 & 0.149 \\
+NoTailRisk & 0.535 & 0.006 & 0.568 & 0.080 & 0.139 & 0.149 \\
+NoTaxonomy & 0.512 & 0.005 & 0.456 & 0.097 & 0.097 & 0.160 \\
+FailureOnly & 0.502 & 0.007 & 0.486 & 0.092 & 0.103 & 0.177 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

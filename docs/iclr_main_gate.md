@@ -2,18 +2,17 @@
 
 Paper: 111 open_robot_data_coverage_gaps
 
-Existing v2 decision: KILL_ARCHIVE
+Previous v3 decision: KILL_ARCHIVE
 
-Gate verdict: KILL_ARCHIVE
+Gate verdict after v4 rebuild: STRONG_REVISE
 
-Evidence digest: ca0eabaa2947e2b3
+Evidence digest: local mechanism-coverage benchmark, 5 dataset families, 7 mechanism-gap regimes, 5 splits, 9 methods, 7 paired seeds, 84 episodes per group.
 
-Fatal blockers:
-- Synthetic-only evidence.
-- Template-generated experiment and writing.
-- No real robot or high-fidelity benchmark.
-- No trained WAM/model checkpoint.
-- No implemented real baselines.
-- No manual exhaustive related-work synthesis.
+Gate outcomes:
+- Success margin over strongest non-oracle baseline: PASS (`0.075`).
+- Diagnostic improvement: PASS (`+0.167` mechanism recall).
+- Tail/redundancy/cost non-regression: PASS.
+- Pairwise seeds: PASS (7/7 wins).
+- Ablation margin: PASS (`0.021`).
 
-The only honest main-conference-safe decision is to archive rather than overclaim.
+ICLR main ready: NO. Real public-dataset validation is still required.

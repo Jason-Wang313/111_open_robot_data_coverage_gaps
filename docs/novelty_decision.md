@@ -1,7 +1,7 @@
 # Novelty Decision
 
-Chosen thesis: Open Robot Data Coverage Gaps turns the seed bet into a mechanism: Measure mechanism coverage gaps in open robot data beyond task and embodiment counts.
+Decision: STRONG_REVISE
 
-New central mechanism: Open robot data coverage gaps keeps action-critical alternatives explicit until a physical observation collapses them.
+The paper has a defensible narrow novelty claim after v4: mechanism-level coverage auditing improves local held-out mechanism performance beyond failure prediction and other data-selection baselines.
 
-Decision: proceed as a revise/workshop-strength ICLR-style draft with synthetic but runnable evidence.
+The paper is not ready for ICLR main because evidence remains local. Real public-dataset validation is mandatory before submission.

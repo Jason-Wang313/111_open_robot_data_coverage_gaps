@@ -1,6 +1,15 @@
 # Claims
 
-- Mechanism claim: Open robot data coverage gaps keeps action-critical alternatives explicit until a physical observation collapses them.
-- Evidence claim: the included synthetic experiment tests hidden physical-mode perturbations and compares observed-only, augmented-data, uncertainty, and proposed variants.
-- Scope claim: results support mechanism plausibility, not real-robot deployment.
-- Unsupported claim explicitly avoided: no claim of SOTA robot performance.
+## Supported Locally
+
+- Coarse trajectory/task/embodiment counts miss mechanism coverage holes.
+- Mechanism-coverage auditing improves held-out success over failure-prediction, uncertainty, embedding-diversity, and count-based selection baselines.
+- The gain is not purchased with higher tail failure, redundancy, or selection cost versus the strongest non-oracle baseline.
+- Mechanism taxonomy, modality coverage, recovery axes, redundancy penalty, and tail-gap estimation all contribute.
+
+## Not Claimed
+
+- Real public-dataset validation.
+- Complete annotation of Open X-Embodiment, DROID, BridgeData, RoboNet, or similar datasets.
+- A replacement for trained downstream policies.
+- Dataset-scale policy performance guarantees.

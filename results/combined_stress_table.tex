@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\caption{Combined-stress mechanism-coverage results.}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Method & Succ. & CI & Recall & FalseNeg & TailFail & Redund. & Cost & Regret \\
+\midrule
+Oracle & 0.665 & 0.006 & 0.746 & 0.015 & 0.053 & 0.104 & 0.208 & 0.000 \\
+Proposed & 0.578 & 0.012 & 0.652 & 0.045 & 0.078 & 0.128 & 0.217 & 0.088 \\
+FailurePred & 0.503 & 0.005 & 0.486 & 0.092 & 0.103 & 0.177 & 0.272 & 0.163 \\
+Uncertainty & 0.479 & 0.007 & 0.423 & 0.113 & 0.122 & 0.184 & 0.257 & 0.186 \\
+EmbedDiv & 0.468 & 0.006 & 0.384 & 0.127 & 0.144 & 0.179 & 0.232 & 0.197 \\
+RandomBal & 0.434 & 0.006 & 0.322 & 0.145 & 0.155 & 0.195 & 0.192 & 0.231 \\
+Embodiment & 0.426 & 0.009 & 0.266 & 0.161 & 0.166 & 0.219 & 0.172 & 0.239 \\
+TaskCount & 0.412 & 0.003 & 0.238 & 0.169 & 0.172 & 0.223 & 0.155 & 0.253 \\
+TrajCount & 0.380 & 0.006 & 0.187 & 0.184 & 0.182 & 0.232 & 0.122 & 0.286 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

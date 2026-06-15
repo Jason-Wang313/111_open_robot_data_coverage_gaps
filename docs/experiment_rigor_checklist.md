@@ -1,19 +1,12 @@
 # Experiment Rigor Checklist
 
-## v2 Synthetic Rigor
-- [x] Multiple seeds.
-- [x] Error bars.
-- [x] Stronger synthetic baselines.
-- [x] Ablations.
-- [x] Stress tests.
-- [x] Negative cases.
-
-## ICLR Main Bar
-- [ ] Real-robot validation.
-- [ ] High-fidelity simulator benchmark.
-- [ ] Implemented learned model.
-- [ ] Implemented real competing baselines.
-- [ ] Manual related-work synthesis.
-- [ ] Paper-specific qualitative figures.
-
-Decision: fail ICLR main empirical-rigor gate; archive.
+- [x] Paired seeds across all methods.
+- [x] Strong selection baselines: count-based, balanced random, embedding diversity, uncertainty sampling, and failure prediction.
+- [x] Multiple dataset-family types.
+- [x] Mechanism-gap regimes include contact, force/tactile, recovery, deformable, irreversible side effects, long horizon, and combined gaps.
+- [x] Tail failure, redundancy, and selection cost reported alongside success.
+- [x] Ablations target core audit components.
+- [x] Failure cases documented.
+- [ ] Real public robot dataset audit.
+- [ ] Downstream trained policy validation.
+- [ ] Human or model-assisted label quality study.
