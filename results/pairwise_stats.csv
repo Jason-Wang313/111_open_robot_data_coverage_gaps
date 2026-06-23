@@ -1,9 +1,0 @@
-baseline,mean_success_diff,ci95_success_diff,wins,total,decision,strongest_non_oracle
-embedding_diversity_selection,0.1096,0.015,7,7,proposed_better,False
-embodiment_count_selection,0.1516,0.0193,7,7,proposed_better,False
-failure_prediction_selection,0.0753,0.0131,7,7,proposed_better,True
-oracle_mechanism_coverage,-0.0876,0.0132,0,7,not_decisive,False
-random_balanced_selection,0.1434,0.0115,7,7,proposed_better,False
-task_count_selection,0.1658,0.0123,7,7,proposed_better,False
-trajectory_count_selection,0.198,0.0094,7,7,proposed_better,False
-uncertainty_sampling,0.0989,0.0106,7,7,proposed_better,False

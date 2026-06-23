@@ -1,20 +1,24 @@
 # ICLR Main Gate
 
-Paper: 111 open_robot_data_coverage_gaps
+Version: v5_expanded
 
-Previous v3 decision: KILL_ARCHIVE
+Decision: STRONG_REVISE
 
-Gate verdict after v4.1 continuation audit: STRONG_REVISE
+ICLR main ready: no
 
-Evidence digest: local mechanism-coverage benchmark, 5 dataset families, 7 mechanism-gap regimes, 5 splits, 9 methods, 7 paired seeds, 84 episodes per group.
+## Passed Local Gates
 
-Gate outcomes:
-- Success margin over strongest non-oracle baseline: PASS (`0.075`).
-- Diagnostic improvement: PASS (`+0.167` mechanism recall).
-- Tail/redundancy/cost non-regression: PASS.
-- Pairwise seeds: PASS (7/7 wins).
-- Ablation margin: PASS (`0.021`).
-- Stress sweep: PASS; proposed remains above embedding diversity, uncertainty sampling, and failure-prediction selection through stress level `1.0`.
-- Failure-case coverage: PASS; 8 limitations documented.
+- Hard success margin: pass (`+0.06536` vs strongest non-oracle).
+- Hard utility margin: pass (`+0.08963` vs strongest non-oracle).
+- Diagnostic gate: pass (`+0.08828` mechanism recall and lower false coverage).
+- Non-regression gate: pass on tail failure, unsafe deployment failure, redundancy, selection cost, and annotation burden.
+- Paired hard utility gate: pass (`10/10` wins).
+- Ablation gate: pass (`+0.02812` success vs best removed component).
+- Stress endpoint gate: pass (`+0.09256` utility margin).
+- Strict fixed-risk gate: pass with non-perfect coverage (`0.32000`) and positive utility margin (`0.16322`).
 
-ICLR main ready: NO. Real public-dataset validation is still required.
+## Failed Scope Gate
+
+The manuscript is not ICLR-main-ready because it has no real public-dataset annotation campaign, no released-data label-quality validation, no schema/provenance normalization audit on public data, no downstream trained-policy experiment, and no deployment logs or rollout videos.
+
+This failed scope gate is decisive rather than cosmetic.

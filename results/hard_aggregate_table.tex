@@ -1,0 +1,23 @@
+\begin{table}[t]
+\centering
+\caption{Hard-aggregate mechanism-coverage results.}
+\label{tab:hard-results}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrrrr}
+\toprule
+Method & Succ. & Util. & Recall & FalseNeg & TailFail & Cost & Regret \\
+\midrule
+Oracle & 0.729 & 0.813 & 0.736 & 0.000 & 0.039 & 0.184 & 0.000 \\
+V5Coverage & 0.651 & 0.727 & 0.685 & 0.011 & 0.052 & 0.193 & 0.145 \\
+V4Coverage & 0.585 & 0.638 & 0.596 & 0.036 & 0.068 & 0.231 & 0.213 \\
+CausalFeat & 0.573 & 0.610 & 0.543 & 0.049 & 0.079 & 0.245 & 0.236 \\
+DomainMix & 0.558 & 0.584 & 0.499 & 0.061 & 0.087 & 0.244 & 0.259 \\
+SafetyMine & 0.552 & 0.581 & 0.484 & 0.055 & 0.064 & 0.256 & 0.260 \\
+VOIActive & 0.544 & 0.566 & 0.482 & 0.064 & 0.083 & 0.262 & 0.274 \\
+FailurePred & 0.540 & 0.563 & 0.478 & 0.065 & 0.081 & 0.250 & 0.276 \\
+LabelQual & 0.528 & 0.540 & 0.417 & 0.067 & 0.099 & 0.230 & 0.296 \\
+Uncertainty & 0.523 & 0.529 & 0.412 & 0.083 & 0.097 & 0.234 & 0.305 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

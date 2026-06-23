@@ -1,34 +1,22 @@
 # Submission Version Log
 
-## v3
+## v5_expanded, 2026-06-23
 
-Decision: KILL_ARCHIVE
+Decision: STRONG_REVISE.
 
-Reason: synthetic/template evidence and no real or high-fidelity validation.
-
-## v4
-
-Decision: STRONG_REVISE
+ICLR main ready: no.
 
 Changes:
-- Added mechanism-coverage benchmark.
-- Added count-based, balanced, embedding-diversity, uncertainty, and failure-prediction baselines.
-- Added paired-seed success tests.
-- Added tail failure, redundancy, and cost gates.
-- Added ablations, stress sweep, failure cases, figures, and generated tables.
-- Rewrote manuscript and docs around a narrow mechanism-coverage data audit claim.
 
-Remaining blocker: no real public-dataset validation.
+- Froze a v5 plan before execution.
+- Expanded the local/catalog protocol to 8 anchors, 10 regimes, 8 splits, 16 methods, and 10 paired seeds.
+- Added hard aggregate, ablation, stress, fixed-risk, failure-case, and false-coverage/regret evidence.
+- Generated a 25-page ICLR-style manuscript with bright boxed clickable citations.
+- Copied the final numbered PDF only to `C:/Users/wangz/Downloads/111.pdf`.
+- Added validation for row counts, numeric sanity, gates, page count, hash, citation-box settings, and PDF location.
 
-## v4.1
+Final PDF SHA256: `A2204B83096B7F570DD9C429A139E71A4FA8886BA2FF99C7DC5129FFC6C8481A`
 
-Decision: STRONG_REVISE
+## v4.1, 2026-06-15
 
-Changes:
-- Added a paper-specific ICLR submission-readiness execution plan before rerunning.
-- Reran the full local benchmark under fixed single-threaded numeric settings.
-- Expanded stress-sweep evidence from seed aggregates to 7350 dataset/regime/seed rows while preserving seed-level aggregate confidence intervals.
-- Expanded documented failure cases from 4 to 8.
-- Rechecked CSV row counts, numeric sanity, strongest baseline, paired seed wins, ablations, stress sweep, and artifact-location requirements.
-
-Remaining blocker: no real public-dataset validation, no downstream trained-policy evidence, and no label-quality audit.
+Historical continuation audit. Superseded by v5_expanded for current status.

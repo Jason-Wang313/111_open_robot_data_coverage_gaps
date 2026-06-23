@@ -1,0 +1,16 @@
+baseline,mean_utility_diff,ci95_utility_diff,wins,total,decision,strongest_non_oracle
+causal_feature_coverage_selection,0.117853,0.010794,10,10,proposed_better,False
+dataset_card_compliance_selection,0.204564,0.008281,10,10,proposed_better,False
+domain_mix_robust_selection,0.143657,0.011739,10,10,proposed_better,False
+embedding_diversity_selection,0.231764,0.010871,10,10,proposed_better,False
+embodiment_count_selection,0.283399,0.011282,10,10,proposed_better,False
+failure_prediction_selection,0.164714,0.008734,10,10,proposed_better,False
+label_quality_first_selection,0.187536,0.009005,10,10,proposed_better,False
+oracle_mechanism_labeled_selector,-0.085942,0.006588,0,10,not_decisive,False
+proposed_mechanism_coverage_audit_v4,0.089633,0.012304,10,10,proposed_better,True
+random_balanced_selection,0.274164,0.01139,10,10,proposed_better,False
+safety_event_mining_selection,0.146539,0.011576,10,10,proposed_better,False
+task_count_selection,0.318491,0.008985,10,10,proposed_better,False
+trajectory_count_selection,0.360151,0.008273,10,10,proposed_better,False
+uncertainty_sampling,0.198595,0.00886,10,10,proposed_better,False
+value_of_information_active_selection,0.16163,0.009938,10,10,proposed_better,False

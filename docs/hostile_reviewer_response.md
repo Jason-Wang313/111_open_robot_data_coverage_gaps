@@ -1,18 +1,21 @@
 # Hostile Reviewer Response
 
-Paper: 111 Open Robot Data Coverage Gaps
+Version: v5_expanded
 
-## Strongest Technical Threats
+Decision: STRONG_REVISE
 
-- This may be only a relabeling of dataset diversity.
-- Failure-prediction selection may already identify the important holes.
-- The benchmark is local and not an audit of real public datasets.
-- Mechanism labels may be expensive or unreliable.
+## Likely Attack: This Is Just A Local Simulator
 
-## Response
+Response: agreed as a readiness blocker. The paper does not claim ICLR-main readiness. The local simulator is now much stronger, with hard baselines, ablations, stress tests, fixed-risk gates, and failure cases, but external public-dataset and trained-policy evidence is still required.
 
-The v4 rebuild includes failure-prediction selection as the strongest non-oracle baseline. The proposed audit improves combined-stress success by `0.075 +/- 0.013`, improves mechanism recall by `0.167`, and lowers tail failure, redundancy, and selection cost.
+## Likely Attack: Results Are Too Pretty
 
-## Honest Action
+Response: not in v5. The oracle remains substantially better than v5, strict fixed-risk coverage is only `0.32000`, ablation margins are positive but not huge, and the scope gate fails.
 
-Mark as `STRONG_REVISE`, not ready acceptance. Submission requires validation on real public robot datasets with label-quality checks and downstream trained policy results.
+## Likely Attack: Baselines Are Weak
+
+Response: v5 compares against 15 non-proposed comparators including the prior v4 mechanism-coverage audit. The strongest non-oracle baseline is `proposed_mechanism_coverage_audit_v4`, and v5 still improves hard success and utility.
+
+## Likely Attack: Missing Real Robot Evidence
+
+Response: correct. This is why the terminal decision is STRONG_REVISE, not ACCEPT_READY. Real public-dataset annotation, label-quality validation, downstream trained-policy evidence, deployment logs, and rollout videos are required before submission.

@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\caption{Catalog anchors used to pressure the local audit. They provide source context, not proof that the v5 experiment downloaded or trained on those datasets.}
+\label{tab:catalog-anchors}
+\small
+\begin{tabularx}{\linewidth}{p{0.18\linewidth}p{0.32\linewidth}X}
+\toprule
+Anchor & Public role & Mechanism-coverage pressure \\
+\midrule
+RoboNet & multi-robot visual foresight and shared manipulation data & cross-robot scale does not guarantee force/tactile or recovery coverage \\
+BridgeData V2 & large-scale manipulation dataset & mobile/tabletop diversity can still hide mechanism tails \\
+Open X-Embodiment / RT-X & cross-embodiment robot data mixture & embodiment scale creates schema-alignment pressure \\
+DROID & in-the-wild robot manipulation data & real-world breadth raises provenance and label-quality questions \\
+robomimic & offline imitation benchmark suite & benchmark cleanliness can underrepresent messy public-catalog tails \\
+RH20T & teleoperation-rich robot demonstrations & teleoperation provenance affects failure/recovery coverage \\
+LIBERO & lifelong/instruction manipulation benchmark & instruction coverage is not equivalent to mechanism coverage \\
+RoboCasa & household/kitchen manipulation simulation benchmark & simulated diversity needs contact/safety mechanism audits \\
+\bottomrule
+\end{tabularx}
+\end{table}

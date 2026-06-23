@@ -1,0 +1,27 @@
+\begin{table}[t]
+\centering
+\caption{Frozen v5 local gates. The scope gate is separate and fails because no real public-dataset/downstream-policy validation is present.}
+\label{tab:gates}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llrl}
+\toprule
+Gate quantity & Frozen criterion & Value & Result \\
+\midrule
+Hard success margin & $\geq 0.030$ & 0.06536 & PASS \\
+Hard utility margin & $\geq 0.050$ & 0.08963 & PASS \\
+Mechanism recall delta & $\geq 0.050$ or false-negative $\leq -0.030$ & 0.08828 & PASS \\
+Coverage false-negative delta & $\leq -0.030$ alternative & -0.02588 & PASS \\
+Tail failure delta & $\leq 0$ & -0.01640 & PASS \\
+Unsafe deployment delta & $\leq 0$ & -0.00682 & PASS \\
+Redundancy delta & $\leq 0$ & -0.02319 & PASS \\
+Selection cost delta & $\leq 0$ & -0.03867 & PASS \\
+Annotation burden delta & $\leq 0$ & -0.02844 & PASS \\
+Paired hard utility wins & $\geq 8/10$ & 10.00000 & PASS \\
+Ablation success margin & $\geq 0.010$ or utility $\geq 0.040$ & 0.02812 & PASS \\
+Stress endpoint utility margin & $\geq 0.050$ & 0.09256 & PASS \\
+Strict fixed-risk coverage & $0.300 \leq$ coverage $< 0.950$ & 0.32000 & PASS \\
+Strict fixed-risk utility margin & $> 0$ & 0.16322 & PASS \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

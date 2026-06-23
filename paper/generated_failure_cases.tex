@@ -1,0 +1,36 @@
+\begin{table}[p]
+\centering
+\caption{Failure cases retained in the v5 audit. These are not hidden; they define the external validation agenda.}
+\label{tab:failure-cases}
+\scriptsize
+\begin{tabularx}{\linewidth}{p{0.17\linewidth}p{0.17\linewidth}X X}
+\toprule
+Case & Split & Observed failure & Lesson \\
+\midrule
+\path{missing_force_channel} & \path{sensor_modality_shift} & force-rich mechanisms are inferred from RGB-only catalog entries & modality coverage must be explicit \\
+\path{schema_collision} & \path{embodiment_shift} & similar task names map to incompatible action/state schemas & schema normalization is a first-class coverage axis \\
+\path{license_metadata_conflict} & \path{provenance_label_shift} & license terms and derived-use metadata disagree & provenance cannot be a footnote \\
+\path{ambiguous_failure_labels} & \path{provenance_label_shift} & failed demonstrations mix recoverable slips with unsafe irreversible actions & label-quality audits are needed \\
+\path{rare_irreversible_tail} & \path{heldout_combined_catalog_gap} & rare side effects are still under-sampled after v5 selection & fixed-risk gates expose tails \\
+\path{teleoperation_bias} & \path{task_shift} & teleoperated demonstrations overrepresent human-friendly recovery actions & operator/source provenance matters \\
+\path{simulated_vs_real_gap} & \path{object_shift} & simulated manipulation suites omit messy contact outcomes & catalog anchors must separate real and simulated data \\
+\path{oracle_gap} & \path{heldout_combined_catalog_gap} & oracle mechanism labels remain stronger than v5 inference & mechanism labeling is not solved \\
+\path{overactive_annotation} & \path{provenance_label_shift} & high-risk cells drive annotation burden spikes & cost must be tracked with utility \\
+\path{frequent_task_regression} & \path{mechanism_shift} & tail-oriented selection can regress frequent easy tasks & utility must include common and rare tasks \\
+\path{deformable_label_sparsity} & \path{object_shift} & deformable mechanisms are underspecified in generic task labels & object mechanics need dedicated labels \\
+\path{recovery_not_observed} & \path{recovery_gap} & successful trajectories hide recovery affordances after failure & failure and recovery should be intentionally sampled \\
+\path{contact_transition_aliasing} & \path{contact_transition_gap} & contact transitions are collapsed into coarse pick/place labels & mechanism taxonomies need temporal boundaries \\
+\path{long_horizon_truncation} & \path{long_horizon_gap} & short clips miss delayed side effects & coverage should track temporal horizon \\
+\path{dataset_card_overtrust} & \path{provenance_label_shift} & metadata compliance does not imply mechanism coverage & dataset cards are necessary but insufficient \\
+\path{failure_prediction_myopia} & \path{combined_catalog_gap} & failure predictors overfocus on common observed failures & unobserved mechanisms need coverage priors \\
+\path{embedding_diversity_myopia} & \path{combined_catalog_gap} & visual diversity misses force/tactile holes & representation diversity is not mechanism diversity \\
+\path{uncertainty_sampling_cost} & \path{heldout_combined_catalog_gap} & uncertainty sampling buys recall with high annotation burden & cost-adjusted utility matters \\
+\path{cross_embodiment_false_friend} & \path{embodiment_shift} & two embodiments share object labels but not feasible contacts & embodiment compatibility is causal \\
+\path{safety_event_underreporting} & \path{irreversible_side_effect_gap} & unsafe events are rarely annotated in public logs & safety tails need audits \\
+\path{human_label_disagreement} & \path{provenance_label_shift} & mechanism labels have genuine ambiguity & report label uncertainty, not just labels \\
+\path{downstream_policy_missing} & \path{heldout_combined_catalog_gap} & catalog evidence does not prove trained-policy gains & scope gate stays failed \\
+\path{negative_transfer_catalog_mix} & \path{domain_mix} & mixing domains can import incompatible mechanics & domain mixing needs mechanism guards \\
+\path{public_catalog_staleness} & \path{nominal_catalog} & public dataset metadata changes over time & reproducible snapshots are required \\
+\bottomrule
+\end{tabularx}
+\end{table}

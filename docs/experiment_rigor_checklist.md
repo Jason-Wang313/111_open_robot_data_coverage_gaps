@@ -1,13 +1,20 @@
 # Experiment Rigor Checklist
 
-- [x] Paired seeds across all methods.
-- [x] Strong selection baselines: count-based, balanced random, embedding diversity, uncertainty sampling, and failure prediction.
-- [x] Multiple dataset-family types.
-- [x] Mechanism-gap regimes include contact, force/tactile, recovery, deformable, irreversible side effects, long horizon, and combined gaps.
-- [x] Tail failure, redundancy, and selection cost reported alongside success.
-- [x] Ablations target core audit components.
-- [x] Stress-sweep dataset/regime/seed evidence emitted.
-- [x] Eight failure cases documented.
-- [ ] Real public robot dataset audit.
-- [ ] Downstream trained policy validation.
-- [ ] Human or model-assisted label quality study.
+Version: v5_expanded
+
+Decision: STRONG_REVISE
+
+- Plan frozen before execution: yes.
+- CPU-only/RAM-light protocol: yes.
+- Strongest non-oracle baseline identified after the run: `proposed_mechanism_coverage_audit_v4`.
+- Strong baselines included: trajectory count, task count, embodiment count, random balance, embedding diversity, uncertainty, failure prediction, value of information, dataset-card compliance, safety mining, label quality, domain mix, causal feature, v4, v5, and oracle.
+- Main cells: 102,400.
+- Ablation cells: 8,000.
+- Stress cells: 48,000.
+- Fixed-risk cells: 51,200.
+- Paired hard seeds: 10.
+- Failure cases retained: 24.
+- Non-pretty fixed-risk result: yes, strict fixed-risk coverage is `0.32000`, not perfect.
+- Scope gate: failed because external public-dataset and trained-policy evidence is absent.
+
+Final PDF SHA256: `A2204B83096B7F570DD9C429A139E71A4FA8886BA2FF99C7DC5129FFC6C8481A`

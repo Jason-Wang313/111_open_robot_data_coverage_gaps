@@ -1,18 +1,22 @@
 \begin{table}[t]
 \centering
-\caption{Ablation results under combined coverage gap stress.}
+\caption{Ablation results under heldout combined catalog-gap stress.}
+\label{tab:ablation}
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{lrrrrrr}
 \toprule
-Ablation & Succ. & CI & Recall & FalseNeg & TailFail & Redund. \\
+Ablation & Succ. & Util. & Recall & FalseNeg & TailFail & Regret \\
 \midrule
-Full & 0.567 & 0.006 & 0.652 & 0.044 & 0.078 & 0.129 \\
-NoRedundancy & 0.547 & 0.008 & 0.605 & 0.060 & 0.092 & 0.210 \\
-NoModality & 0.539 & 0.008 & 0.546 & 0.077 & 0.094 & 0.145 \\
-NoRecovery & 0.539 & 0.005 & 0.556 & 0.074 & 0.103 & 0.149 \\
-NoTailRisk & 0.535 & 0.006 & 0.568 & 0.080 & 0.139 & 0.149 \\
-NoTaxonomy & 0.512 & 0.005 & 0.456 & 0.097 & 0.097 & 0.160 \\
-FailureOnly & 0.502 & 0.007 & 0.486 & 0.092 & 0.103 & 0.177 \\
+Full & 0.634 & 0.709 & 0.677 & 0.012 & 0.055 & 0.000 \\
+NoProv & 0.606 & 0.672 & 0.628 & 0.024 & 0.064 & 0.127 \\
+NoLabel & 0.605 & 0.670 & 0.641 & 0.036 & 0.065 & 0.126 \\
+NoRedund & 0.603 & 0.668 & 0.641 & 0.023 & 0.064 & 0.132 \\
+NoSchema & 0.605 & 0.667 & 0.619 & 0.031 & 0.065 & 0.125 \\
+NoModality & 0.600 & 0.659 & 0.596 & 0.031 & 0.065 & 0.138 \\
+NoRecovery & 0.595 & 0.652 & 0.601 & 0.033 & 0.070 & 0.138 \\
+NoTail & 0.600 & 0.645 & 0.610 & 0.048 & 0.119 & 0.145 \\
+V4Abl & 0.587 & 0.635 & 0.588 & 0.041 & 0.074 & 0.152 \\
+NoTaxonomy & 0.578 & 0.622 & 0.503 & 0.042 & 0.066 & 0.157 \\
 \bottomrule
 \end{tabular}
 }

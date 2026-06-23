@@ -1,9 +1,25 @@
-case,stress_split,observed_failure,success_rate,lesson
-ambiguous_dataset_metadata,combined_stress,mechanism labels are missing or inconsistent,0.404,real dataset validation requires manual or model-assisted labeling
-unobserved_force_channel,unseen_mechanism_shift,coverage audit infers force mechanisms without force sensors,0.432,modality coverage cannot be faked from RGB alone
-rare_irreversible_damage,combined_stress,rare side effects remain under-sampled,0.418,safety tails need targeted collection
-oracle_gap,combined_stress,oracle mechanism labels remain better,0.578,audit helps but is not saturated
-license_metadata_mismatch,seen_task_shift,dataset license fields conflict with usage metadata,0.447,real audits need provenance and license normalization
-embodiment_mapping_ambiguity,unseen_object_shift,two robot embodiments expose similar tasks but incompatible action/state schemas,0.431,coverage tensors need schema-aware embodiment alignment
-annotation_cost_spike,combined_stress,tail mechanisms require expensive human relabeling,0.409,audit cards should include labeling budget and uncertainty
-downstream_policy_regression,unseen_mechanism_shift,adding mechanism-diverse data improves tail cases but regresses an easy frequent task,0.425,dataset selection needs multi-objective policy validation
+case_id,case,stress_split,observed_failure,lesson,terminal_effect
+1,missing_force_channel,sensor_modality_shift,force-rich mechanisms are inferred from RGB-only catalog entries,modality coverage must be explicit,scope_or_stress_boundary
+2,schema_collision,embodiment_shift,similar task names map to incompatible action/state schemas,schema normalization is a first-class coverage axis,scope_or_stress_boundary
+3,license_metadata_conflict,provenance_label_shift,license terms and derived-use metadata disagree,provenance cannot be a footnote,scope_or_stress_boundary
+4,ambiguous_failure_labels,provenance_label_shift,failed demonstrations mix recoverable slips with unsafe irreversible actions,label-quality audits are needed,scope_or_stress_boundary
+5,rare_irreversible_tail,heldout_combined_catalog_gap,rare side effects are still under-sampled after v5 selection,fixed-risk gates expose tails,scope_or_stress_boundary
+6,teleoperation_bias,task_shift,teleoperated demonstrations overrepresent human-friendly recovery actions,operator/source provenance matters,scope_or_stress_boundary
+7,simulated_vs_real_gap,object_shift,simulated manipulation suites omit messy contact outcomes,catalog anchors must separate real and simulated data,scope_or_stress_boundary
+8,oracle_gap,heldout_combined_catalog_gap,oracle mechanism labels remain stronger than v5 inference,mechanism labeling is not solved,scope_or_stress_boundary
+9,overactive_annotation,provenance_label_shift,high-risk cells drive annotation burden spikes,cost must be tracked with utility,scope_or_stress_boundary
+10,frequent_task_regression,mechanism_shift,tail-oriented selection can regress frequent easy tasks,utility must include common and rare tasks,scope_or_stress_boundary
+11,deformable_label_sparsity,object_shift,deformable mechanisms are underspecified in generic task labels,object mechanics need dedicated labels,scope_or_stress_boundary
+12,recovery_not_observed,recovery_gap,successful trajectories hide recovery affordances after failure,failure and recovery should be intentionally sampled,scope_or_stress_boundary
+13,contact_transition_aliasing,contact_transition_gap,contact transitions are collapsed into coarse pick/place labels,mechanism taxonomies need temporal boundaries,scope_or_stress_boundary
+14,long_horizon_truncation,long_horizon_gap,short clips miss delayed side effects,coverage should track temporal horizon,scope_or_stress_boundary
+15,dataset_card_overtrust,provenance_label_shift,metadata compliance does not imply mechanism coverage,dataset cards are necessary but insufficient,scope_or_stress_boundary
+16,failure_prediction_myopia,combined_catalog_gap,failure predictors overfocus on common observed failures,unobserved mechanisms need coverage priors,scope_or_stress_boundary
+17,embedding_diversity_myopia,combined_catalog_gap,visual diversity misses force/tactile holes,representation diversity is not mechanism diversity,scope_or_stress_boundary
+18,uncertainty_sampling_cost,heldout_combined_catalog_gap,uncertainty sampling buys recall with high annotation burden,cost-adjusted utility matters,scope_or_stress_boundary
+19,cross_embodiment_false_friend,embodiment_shift,two embodiments share object labels but not feasible contacts,embodiment compatibility is causal,scope_or_stress_boundary
+20,safety_event_underreporting,irreversible_side_effect_gap,unsafe events are rarely annotated in public logs,safety tails need audits,scope_or_stress_boundary
+21,human_label_disagreement,provenance_label_shift,mechanism labels have genuine ambiguity,"report label uncertainty, not just labels",scope_or_stress_boundary
+22,downstream_policy_missing,heldout_combined_catalog_gap,catalog evidence does not prove trained-policy gains,scope gate stays failed,scope_or_stress_boundary
+23,negative_transfer_catalog_mix,domain_mix,mixing domains can import incompatible mechanics,domain mixing needs mechanism guards,scope_or_stress_boundary
+24,public_catalog_staleness,nominal_catalog,public dataset metadata changes over time,reproducible snapshots are required,scope_or_stress_boundary
